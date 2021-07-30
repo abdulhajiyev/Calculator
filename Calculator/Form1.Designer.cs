@@ -36,15 +36,15 @@ namespace Calculator
             this.minBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             this.closeBtn = new Guna.UI2.WinForms.Guna2ImageButton();
             this.signsPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.equalBtn = new Guna.UI2.WinForms.Guna2GradientTileButton();
-            this.addBtn = new Guna.UI2.WinForms.Guna2GradientTileButton();
+            this.equalBtn = new Guna.UI2.WinForms.Guna2TileButton();
+            this.addBtn = new Guna.UI2.WinForms.Guna2TileButton();
             this.delBtn = new Guna.UI2.WinForms.Guna2TileButton();
             this.allClrBtn = new Guna.UI2.WinForms.Guna2GradientTileButton();
             this.subBtn = new Guna.UI2.WinForms.Guna2TileButton();
             this.divBtn = new Guna.UI2.WinForms.Guna2TileButton();
             this.multBtn = new Guna.UI2.WinForms.Guna2TileButton();
             this.numbersPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.commaBtn = new Guna.UI2.WinForms.Guna2TileButton();
+            this.dotBtn = new Guna.UI2.WinForms.Guna2TileButton();
             this.btn3 = new Guna.UI2.WinForms.Guna2TileButton();
             this.btn0 = new Guna.UI2.WinForms.Guna2TileButton();
             this.btn6 = new Guna.UI2.WinForms.Guna2TileButton();
@@ -84,7 +84,7 @@ namespace Calculator
             // resultLbl
             // 
             this.resultLbl.BackColor = System.Drawing.Color.Transparent;
-            this.resultLbl.Font = new System.Drawing.Font("Gotham Rounded", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultLbl.Font = new System.Drawing.Font("Gotham Rounded Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.resultLbl.Location = new System.Drawing.Point(100, 25);
             this.resultLbl.Margin = new System.Windows.Forms.Padding(5, 25, 5, 25);
@@ -92,7 +92,6 @@ namespace Calculator
             this.resultLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.resultLbl.Size = new System.Drawing.Size(386, 50);
             this.resultLbl.TabIndex = 1;
-            this.resultLbl.Text = "10+5 = 15";
             this.resultLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // minBtn
@@ -111,7 +110,7 @@ namespace Calculator
             this.minBtn.Size = new System.Drawing.Size(10, 10);
             this.minBtn.TabIndex = 0;
             this.minBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.minBtn.Click += new System.EventHandler(this.guna2ImageButton2_Click);
+            this.minBtn.Click += new System.EventHandler(this.minBox_Click);
             // 
             // closeBtn
             // 
@@ -133,7 +132,7 @@ namespace Calculator
             // 
             // signsPanel
             // 
-            this.signsPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.signsPanel.BackColor = System.Drawing.Color.Transparent;
             this.signsPanel.Controls.Add(this.equalBtn);
             this.signsPanel.Controls.Add(this.addBtn);
             this.signsPanel.Controls.Add(this.delBtn);
@@ -142,6 +141,9 @@ namespace Calculator
             this.signsPanel.Controls.Add(this.divBtn);
             this.signsPanel.Controls.Add(this.multBtn);
             this.signsPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.signsPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(4)))), ((int)(((byte)(1)))));
+            this.signsPanel.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(163)))), ((int)(((byte)(1)))));
+            this.signsPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.signsPanel.Location = new System.Drawing.Point(300, 100);
             this.signsPanel.Name = "signsPanel";
             this.signsPanel.ShadowDecoration.Parent = this.signsPanel;
@@ -150,36 +152,38 @@ namespace Calculator
             // 
             // equalBtn
             // 
+            this.equalBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.equalBtn.Animated = true;
-            this.equalBtn.BackColor = System.Drawing.Color.Transparent;
+            this.equalBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.equalBtn.CheckedState.Parent = this.equalBtn;
             this.equalBtn.CustomImages.Parent = this.equalBtn;
-            this.equalBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(4)))), ((int)(((byte)(1)))));
-            this.equalBtn.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(163)))), ((int)(((byte)(1)))));
+            this.equalBtn.FillColor = System.Drawing.Color.Transparent;
             this.equalBtn.Font = new System.Drawing.Font("Gotham Rounded", 15.75F, System.Drawing.FontStyle.Bold);
             this.equalBtn.ForeColor = System.Drawing.Color.White;
             this.equalBtn.HoverState.Parent = this.equalBtn;
             this.equalBtn.Location = new System.Drawing.Point(100, 200);
             this.equalBtn.Margin = new System.Windows.Forms.Padding(0);
             this.equalBtn.Name = "equalBtn";
+            this.equalBtn.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.equalBtn.ShadowDecoration.Parent = this.equalBtn;
             this.equalBtn.Size = new System.Drawing.Size(100, 200);
-            this.equalBtn.TabIndex = 2;
+            this.equalBtn.TabIndex = 1;
             this.equalBtn.Text = "=";
             this.equalBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.equalBtn.Click += new System.EventHandler(this.Equals);
             // 
             // addBtn
             // 
             this.addBtn.Animated = true;
-            this.addBtn.BackColor = System.Drawing.Color.Transparent;
             this.addBtn.CheckedState.Parent = this.addBtn;
             this.addBtn.CustomImages.Parent = this.addBtn;
             this.addBtn.FillColor = System.Drawing.Color.White;
-            this.addBtn.FillColor2 = System.Drawing.Color.White;
-            this.addBtn.Font = new System.Drawing.Font("Gotham Rounded", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addBtn.Font = new System.Drawing.Font("Gotham Rounded", 15.75F, System.Drawing.FontStyle.Bold);
             this.addBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(57)))), ((int)(((byte)(76)))));
             this.addBtn.HoverState.Parent = this.addBtn;
-            this.addBtn.Location = new System.Drawing.Point(0, 300);
+            this.addBtn.Location = new System.Drawing.Point(0, 200);
             this.addBtn.Margin = new System.Windows.Forms.Padding(0);
             this.addBtn.Name = "addBtn";
             this.addBtn.ShadowDecoration.Parent = this.addBtn;
@@ -187,6 +191,7 @@ namespace Calculator
             this.addBtn.TabIndex = 1;
             this.addBtn.Text = "+";
             this.addBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.addBtn.Click += new System.EventHandler(this.OperatorFound);
             // 
             // delBtn
             // 
@@ -198,15 +203,16 @@ namespace Calculator
             this.delBtn.Font = new System.Drawing.Font("Gotham Rounded", 15.75F, System.Drawing.FontStyle.Bold);
             this.delBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(57)))), ((int)(((byte)(76)))));
             this.delBtn.HoverState.Parent = this.delBtn;
-            this.delBtn.Image = global::Calculator.Properties.Resources.clear_symbol_90px;
             this.delBtn.ImageSize = new System.Drawing.Size(25, 25);
-            this.delBtn.Location = new System.Drawing.Point(100, 0);
+            this.delBtn.Location = new System.Drawing.Point(100, 100);
             this.delBtn.Margin = new System.Windows.Forms.Padding(0);
             this.delBtn.Name = "delBtn";
             this.delBtn.ShadowDecoration.Parent = this.delBtn;
             this.delBtn.Size = new System.Drawing.Size(100, 100);
             this.delBtn.TabIndex = 0;
+            this.delBtn.Text = "C";
             this.delBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.delBtn.Click += new System.EventHandler(this.ClearOperator);
             // 
             // allClrBtn
             // 
@@ -219,7 +225,7 @@ namespace Calculator
             this.allClrBtn.Font = new System.Drawing.Font("Gotham Rounded", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.allClrBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(57)))), ((int)(((byte)(76)))));
             this.allClrBtn.HoverState.Parent = this.allClrBtn;
-            this.allClrBtn.Location = new System.Drawing.Point(100, 100);
+            this.allClrBtn.Location = new System.Drawing.Point(100, 0);
             this.allClrBtn.Margin = new System.Windows.Forms.Padding(0);
             this.allClrBtn.Name = "allClrBtn";
             this.allClrBtn.ShadowDecoration.Parent = this.allClrBtn;
@@ -227,6 +233,7 @@ namespace Calculator
             this.allClrBtn.TabIndex = 1;
             this.allClrBtn.Text = "AC";
             this.allClrBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.allClrBtn.Click += new System.EventHandler(this.ClearAll);
             // 
             // subBtn
             // 
@@ -238,7 +245,7 @@ namespace Calculator
             this.subBtn.Font = new System.Drawing.Font("Gotham Rounded", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(57)))), ((int)(((byte)(76)))));
             this.subBtn.HoverState.Parent = this.subBtn;
-            this.subBtn.Location = new System.Drawing.Point(0, 200);
+            this.subBtn.Location = new System.Drawing.Point(0, 300);
             this.subBtn.Margin = new System.Windows.Forms.Padding(0);
             this.subBtn.Name = "subBtn";
             this.subBtn.ShadowDecoration.Parent = this.subBtn;
@@ -246,6 +253,7 @@ namespace Calculator
             this.subBtn.TabIndex = 0;
             this.subBtn.Text = "-";
             this.subBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.subBtn.Click += new System.EventHandler(this.OperatorFound);
             // 
             // divBtn
             // 
@@ -265,6 +273,7 @@ namespace Calculator
             this.divBtn.TabIndex = 0;
             this.divBtn.Text = "÷";
             this.divBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.divBtn.Click += new System.EventHandler(this.OperatorFound);
             // 
             // multBtn
             // 
@@ -284,10 +293,11 @@ namespace Calculator
             this.multBtn.TabIndex = 0;
             this.multBtn.Text = "*";
             this.multBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.multBtn.Click += new System.EventHandler(this.OperatorFound);
             // 
             // numbersPanel
             // 
-            this.numbersPanel.Controls.Add(this.commaBtn);
+            this.numbersPanel.Controls.Add(this.dotBtn);
             this.numbersPanel.Controls.Add(this.btn3);
             this.numbersPanel.Controls.Add(this.btn0);
             this.numbersPanel.Controls.Add(this.btn6);
@@ -309,24 +319,25 @@ namespace Calculator
             this.numbersPanel.Size = new System.Drawing.Size(300, 400);
             this.numbersPanel.TabIndex = 2;
             // 
-            // commaBtn
+            // dotBtn
             // 
-            this.commaBtn.Animated = true;
-            this.commaBtn.BackColor = System.Drawing.Color.Transparent;
-            this.commaBtn.CheckedState.Parent = this.commaBtn;
-            this.commaBtn.CustomImages.Parent = this.commaBtn;
-            this.commaBtn.FillColor = System.Drawing.Color.Transparent;
-            this.commaBtn.Font = new System.Drawing.Font("Gotham Rounded", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.commaBtn.ForeColor = System.Drawing.Color.White;
-            this.commaBtn.HoverState.Parent = this.commaBtn;
-            this.commaBtn.Location = new System.Drawing.Point(200, 300);
-            this.commaBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.commaBtn.Name = "commaBtn";
-            this.commaBtn.ShadowDecoration.Parent = this.commaBtn;
-            this.commaBtn.Size = new System.Drawing.Size(100, 100);
-            this.commaBtn.TabIndex = 0;
-            this.commaBtn.Text = ",";
-            this.commaBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.dotBtn.Animated = true;
+            this.dotBtn.BackColor = System.Drawing.Color.Transparent;
+            this.dotBtn.CheckedState.Parent = this.dotBtn;
+            this.dotBtn.CustomImages.Parent = this.dotBtn;
+            this.dotBtn.FillColor = System.Drawing.Color.Transparent;
+            this.dotBtn.Font = new System.Drawing.Font("Gotham Rounded", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dotBtn.ForeColor = System.Drawing.Color.White;
+            this.dotBtn.HoverState.Parent = this.dotBtn;
+            this.dotBtn.Location = new System.Drawing.Point(200, 300);
+            this.dotBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.dotBtn.Name = "dotBtn";
+            this.dotBtn.ShadowDecoration.Parent = this.dotBtn;
+            this.dotBtn.Size = new System.Drawing.Size(100, 100);
+            this.dotBtn.TabIndex = 0;
+            this.dotBtn.Text = ".";
+            this.dotBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.dotBtn.Click += new System.EventHandler(this.UpdateSign);
             // 
             // btn3
             // 
@@ -346,6 +357,7 @@ namespace Calculator
             this.btn3.TabIndex = 0;
             this.btn3.Text = "3";
             this.btn3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.btn3.Click += new System.EventHandler(this.UpdateSign);
             // 
             // btn0
             // 
@@ -365,6 +377,7 @@ namespace Calculator
             this.btn0.TabIndex = 0;
             this.btn0.Text = "0";
             this.btn0.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.btn0.Click += new System.EventHandler(this.UpdateSign);
             // 
             // btn6
             // 
@@ -384,6 +397,7 @@ namespace Calculator
             this.btn6.TabIndex = 0;
             this.btn6.Text = "6";
             this.btn6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.btn6.Click += new System.EventHandler(this.UpdateSign);
             // 
             // btn9
             // 
@@ -403,6 +417,7 @@ namespace Calculator
             this.btn9.TabIndex = 0;
             this.btn9.Text = "9";
             this.btn9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.btn9.Click += new System.EventHandler(this.UpdateSign);
             // 
             // plusMinBtn
             // 
@@ -422,6 +437,7 @@ namespace Calculator
             this.plusMinBtn.TabIndex = 0;
             this.plusMinBtn.Text = "+/-";
             this.plusMinBtn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.plusMinBtn.Click += new System.EventHandler(this.ChangeSign);
             // 
             // bnt2
             // 
@@ -441,6 +457,7 @@ namespace Calculator
             this.bnt2.TabIndex = 0;
             this.bnt2.Text = "2";
             this.bnt2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.bnt2.Click += new System.EventHandler(this.UpdateSign);
             // 
             // btn1
             // 
@@ -460,6 +477,7 @@ namespace Calculator
             this.btn1.TabIndex = 0;
             this.btn1.Text = "1";
             this.btn1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.btn1.Click += new System.EventHandler(this.UpdateSign);
             // 
             // btn5
             // 
@@ -479,6 +497,7 @@ namespace Calculator
             this.btn5.TabIndex = 0;
             this.btn5.Text = "5";
             this.btn5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.btn5.Click += new System.EventHandler(this.UpdateSign);
             // 
             // btn4
             // 
@@ -498,6 +517,7 @@ namespace Calculator
             this.btn4.TabIndex = 0;
             this.btn4.Text = "4";
             this.btn4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.btn4.Click += new System.EventHandler(this.UpdateSign);
             // 
             // btn8
             // 
@@ -517,6 +537,7 @@ namespace Calculator
             this.btn8.TabIndex = 0;
             this.btn8.Text = "8";
             this.btn8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.btn8.Click += new System.EventHandler(this.UpdateSign);
             // 
             // btn7
             // 
@@ -536,6 +557,7 @@ namespace Calculator
             this.btn7.TabIndex = 0;
             this.btn7.Text = "7";
             this.btn7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            this.btn7.Click += new System.EventHandler(this.UpdateSign);
             // 
             // Form1
             // 
@@ -569,7 +591,7 @@ namespace Calculator
         private Guna.UI2.WinForms.Guna2TileButton btn9;
         private Guna.UI2.WinForms.Guna2TileButton btn8;
         private Guna.UI2.WinForms.Guna2TileButton btn7;
-        private Guna.UI2.WinForms.Guna2TileButton commaBtn;
+        private Guna.UI2.WinForms.Guna2TileButton dotBtn;
         private Guna.UI2.WinForms.Guna2TileButton btn3;
         private Guna.UI2.WinForms.Guna2TileButton btn6;
         private Guna.UI2.WinForms.Guna2TileButton btn0;
@@ -580,10 +602,10 @@ namespace Calculator
         private Guna.UI2.WinForms.Guna2TileButton btn4;
         private Guna.UI2.WinForms.Guna2ImageButton closeBtn;
         private Guna.UI2.WinForms.Guna2ImageButton minBtn;
-        private Guna.UI2.WinForms.Guna2GradientTileButton equalBtn;
-        private Guna.UI2.WinForms.Guna2GradientTileButton addBtn;
         private Guna.UI2.WinForms.Guna2TileButton multBtn;
         private System.Windows.Forms.Label resultLbl;
+        private Guna.UI2.WinForms.Guna2TileButton equalBtn;
+        private Guna.UI2.WinForms.Guna2TileButton addBtn;
     }
 }
 
